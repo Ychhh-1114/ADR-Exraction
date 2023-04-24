@@ -1,6 +1,8 @@
 # ADR-Exraction
 BERT-CasRel | Roberta-GPlinker | BERT-BILSTM-CRF
 
+### 系统当前地址：43.142.186.35
+
 ## 模型
 
 - [ ] joint模型：
