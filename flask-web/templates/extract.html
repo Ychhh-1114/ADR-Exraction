@@ -1,0 +1,295 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>About Us - Creative Multipurpose Agency Template</title>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <!-- all css here -->
+    <!-- bootstrap v4.1.3 css -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css"/>
+    <!-- font-awesome css -->
+    <link rel="stylesheet" href="static/css/fontawesome.min.css"/>
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="static/css/flaticon.css"/>
+    <!-- selectize css -->
+    <link rel="stylesheet" href="static/css/selectize.css"/>
+    <!-- owl-carousel css -->
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="static/css/owl.theme.default.min.css"/>
+    <!-- animate css -->
+    <link rel="stylesheet" href="static/css/animate.min.css"/>
+    <!-- venobox css -->
+    <link rel="stylesheet" href="static/css/venobox.css"/>
+    <!-- style css -->
+    <link rel="stylesheet" href="static/style.css"/>
+
+    <link rel="shortcut icon" href="static/img/favicon.ico"/>
+
+    <!-- modernizr static/js/ -->
+    <script src="static/js//vendor/modernizr-custom.static/js/"></script>
+    <!--[if lt IE 9]>
+    <script src="../../oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.static/js/"></script>
+    <script src="../../oss.maxcdn.com/respond/1.4.2/respond.min.static/js/"></script><![endif]-->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="http://localhost:8080/static/css/main.css">
+</head>
+<body>
+<div id="app">
+    <div class="wrapper-content">
+        <div class="wrapper">
+            <!-- Start Header Area -->
+            <header class="header header-two">
+
+                <div class="header-bottom">
+                    <div class="container">
+                        <div class="row">
+                            <div class="header-info">
+                                <!-- Start Navigation -->
+                                <nav class="navbar navbar-expand-lg navbar-dark">
+
+                                    <div style="font-size: 20px">
+                                        <h1>药物不良反应抽取系统</h1>
+                                    </div>
+
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                            data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                                            aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                        <ul class="navbar-nav">
+                                            <li class="nav-item active"><a class="nav-link" href="/">主页</a></li>
+                                            <li class="nav-item active"><a class="nav-link" href="/extract">抽取</a></li>
+                                            <li class="nav-item active"><a class="nav-link"
+                                                                           href="https://huggingface.co/ych-1114/BioBERT-CasRel-ADR-Extraction">模型仓库链接</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <!-- Start Search btn -->
+
+                                                <!-- End Search btn --></li>
+
+                                        </ul>
+                                    </div>
+                                </nav>
+                                <!-- End Navigation -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- End Header Area -->
+            <!-- Strat Breadcrumb Area -->
+            <section class="breadcrumb-area">
+                <div class="breadcrumb-content text-center" style="position:absolute;left:15%;margin-left: -50px;
+    width: 1000px;height: 100px;line-height:242px">
+                    <el-icon>
+                        <Operation/>
+                    </el-icon>
+                    <template>
+                        <el-input v-model="textarea" placeholder="请输入"/>
+                    </template>
+                </div>
+                <div class="breadcrumb-content" style="position:absolute;left: 760px;margin-left: -50px;
+    width: 1000px;height: 100px;line-height:242px">
+                    <el-button type="success" round v-on:click="extract">抽取</el-button>
+                </div>
+                <div class="breadcrumb-content" style="position:absolute;left:1300px;margin-left: -50px;
+    width: 150px;height: 100px;">
+                    <el-select v-model="value" class="m-2" placeholder="文本语言">
+                        <el-option
+                                v-for="item in options"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value"
+                        />
+                    </el-select>
+                </div>
+
+                <div class="breadcrumb-content" v-if="reKey==1" style="position:absolute;left:20%;top:80px;margin-left: -50px;
+    width: 1000px;height: 300px;line-height:242px">
+
+                    <ul v-infinite-scroll="load" class="infinite-list" style="overflow: auto;width: 1000px">
+                        <li v-for="(adr,index) in adr_results" class="infinite-list-item">
+                            <el-form :model="adr" label-width="120px">
+
+                                <div style="width:50px;height: 100px">
+                                    <el-button color="#626aef" :dark="isDark">抽取结果</el-button>
+                                </div>
+                                <el-form-item label="药物名称" label-width="200px">
+                                    <el-input v-model="adr.drug" placeholder="Approved by"/>
+                                </el-form-item>
+                                <el-form-item label="不良反应" label-width="200px">
+                                    <el-input v-model="adr.advers" placeholder="Approved by"/>
+                                </el-form-item>
+                            </el-form>
+                            <el-divider/>
+
+                        </li>
+                    </ul>
+
+
+                </div>
+
+
+            </section>
+
+            <!-- End Breadcrumb Area -->
+            <!-- Start Traffic Area -->
+
+            <footer class="footer-area">
+                <div class="footer-top">
+                    <div class="container">
+                        <div class="footer-info">
+                            <h4>系统设计信息</h4>
+                            <ul class="link-list list-style">
+                                <li>指导老师：李智恒</li>
+                                <li>设计人员：岳彩恒</li>
+                                <li>学校：山东科技大学</li>
+                                <li>专业：智能科学与技术</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Start Back To Top Area -->
+                <div class="back-to-top">
+                    <span>Back To Top</span>
+                </div>
+                <!-- End Back To Top Area -->
+            </footer>
+            <!-- End Footer Area -->
+        </div>
+    </div>
+    <!-- Start Custom Cursor -->
+    <div class="custom-cursor">
+        <div id="cursor">
+            <div id="cursor-ball"></div>
+        </div>
+    </div>
+    <!-- End Custom Cursor -->
+    <!-- Start Video Popup Area -->
+    <div class="cd-popup" role="alert">
+        <div class="cd-popup-container">
+            <div class="video-container">
+                <iframe width="650" height="350" src="" allowfullscreen=""></iframe>
+            </div>
+            <a href="#0" class="cd-popup-close">x</a>
+        </div>
+    </div>
+</div>
+<!-- End Video Popup Area -->
+<!-- all static/js/ here -->
+<!-- jquery version -->
+<script src="static/js//jquery-3.1.1.min.static/js/"></script>
+<!-- popper static/js/ -->
+<script src="static/js//popper.min.static/js/"></script>
+<!-- bootstrap static/js/ -->
+<script src="static/js//bootstrap.min.static/js/"></script>
+<!-- selectize -->
+<script src="static/js//selectize.static/js/"></script>
+<!-- icheck -->
+<script src="static/js//icheck.min.static/js/"></script>
+<!-- owl.carousel static/js/ -->
+<script src="static/js//owl.carousel.min.static/js/"></script>
+<!-- appear static/js/ -->
+<script src="static/js//jquery.appear.static/js/"></script>
+<!-- easing static/js/ -->
+<script src="static/js//jquery.easing.1.3.min.static/js/"></script>
+<!-- venobox static/js/ -->
+<script src="static/js//venobox.min.static/js/"></script>
+<!-- countTo static/js/ -->
+<script src="static/js//jquery.countTo.static/js/"></script>
+<!-- wow static/js/ -->
+<script src="static/js//wow.min.static/js/"></script>
+<!-- loadMoreResults static/js/ -->
+<script src="static/js//loadMoreResults.static/js/"></script>
+<!-- TweenMax static/js/ -->
+<script src="static/js//TweenMax.static/js/"></script>
+<!-- main static/js/ -->
+<script src="static/js//main.static/js/"></script>
+<script src="static/js/main.js"></script>
+<script src="static/js/vue.js"></script>
+<script src="static/element-ui/lib/index.js"></script>
+<link rel="stylesheet" href="static/element-ui/lib/theme-chalk/index.css">
+<script src="static/js/axios-0.18.0.js"></script>
+
+<script>
+    new Vue({
+        el: "#app",
+        data() {
+            return {
+                alert: 0,
+                textarea: "",
+                reKey: 0,
+                adr_results: [],
+                nullkey: 0,
+                options: [
+                    {
+                        "value": "英文",
+                        "label": "英文",
+                    },
+                    {
+                        "value": "中文",
+                        "label": "中文",
+                    }
+                ],
+                lang_: "0",
+                value: "",
+
+            }
+        },
+        mounted() {
+            var _this = this;
+            _this.alert = 0;
+            _this.reKey = 0;
+            _this.value = "";
+            _this.textarea = "";
+        },
+        methods: {
+            del_all() {
+                var _this = this;
+                _this.textarea = "";
+                _this.reKey = 0;
+            },
+            extract() {
+                var _this = this;
+                _this.reKey = 0;
+                if (_this.textarea == "") {
+                    alert("请选择文本语言")
+                } else if (_this.value == "") {
+                    alert("请选择文本语言")
+                } else {
+                    axios({
+                        method: "post",
+                        url: "/model/extract",
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        data: {
+                            "text": _this.textarea,
+                            "lang": _this.value
+                        }
+                    }).then(function (resp) {
+                        _this.nullkey = resp.data.nullkey;
+                        if (_this.nullkey == 0) {
+                            alert("未抽取到任何信息")
+                        } else {
+                            _this.adr_results = resp.data.adr_list;
+                            _this.reKey = 1
+                        }
+
+                    })
+                }
+
+
+            }
+        }
+    })
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>Home</title>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <!-- all css here -->
+    <!-- bootstrap v4.1.3 css -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css"/>
+    <!-- font-awesome css -->
+    <link rel="stylesheet" href="static/css/fontawesome.min.css"/>
+    <!-- flaticon css -->
+    <link rel="stylesheet" href="static/css/flaticon.css"/>
+    <!-- selectize css -->
+    <link rel="stylesheet" href="static/css/selectize.css"/>
+    <!-- owl-carousel css -->
+    <link rel="stylesheet" href="static/css/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="static/css/owl.theme.default.min.css"/>
+    <!-- animate css -->
+    <link rel="stylesheet" href="static/css/animate.min.css"/>
+    <!-- venobox css -->
+    <link rel="stylesheet" href="static/css/venobox.css"/>
+    <!-- style css -->
+    <link rel="stylesheet" href="static/style.css"/>
+    <!-- modernizr js -->
+    <script src="static/js/vendor/modernizr-custom.js"></script>
+    <!--[if lt IE 9]>
+    <script src="../../oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="../../oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="http://localhost:8080/static/css/main.css">
+</head>
+<body>
+<div id="app">
+    <div class="wrapper-content">
+        <div class="wrapper">
+            <!-- Start Header Area -->
+            <header class="header">
+                <div class="header-top-area">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <div class="container">
+                        <div class="row">
+                            <div class="header-info">
+                                <!-- Start Navigation -->
+                                <nav class="navbar navbar-expand-lg navbar-dark">
+                                    <div style="font-size: 25px">
+                                        <h1>药物不良反应抽取系统</h1>
+                                    </div>
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                            data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                                            aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                        <ul class="navbar-nav">
+                                            <li class="nav-item active"><a class="nav-link" href="/">主页</a></li>
+                                            <li class="nav-item active"><a class="nav-link" href="/extract">抽取</a></li>
+                                            <li class="nav-item active"><a class="nav-link" href="https://huggingface.co/ych-1114/BioBERT-CasRel-ADR-Extraction">模型仓库链接</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                                <!-- End Navigation -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- End Header Area -->
+            <!-- Strat Welcome Area -->
+            <section class="intro-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-5 col-xl-6">
+                            <div class="intro-content">
+                                <h1 class="intro-title"></h1>
+                                <p>药物不良反应（Adverse Drug Reaction,
+                                    ADR）抽取系统是一种自然语言处理技术，旨在从大量的医学文献、电子病历和社交媒体等数据源中自动抽取出药物使用所引起的不良反应信息。药物不良反应抽取系统的主要目的是提高药物安全性，帮助医疗专业人士更快速、更准确地发现和报告药物不良反应，以便及时采取措施避免患者遭受损害。</p>
+                                <!--         <a class="btn" href="#">Learn More</a>-->
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-7 col-xl-6">
+                            <div class="intro-image-block">
+                                <div class="shape-image-1 wow fadeInDown" data-wow-delay="0.5s">
+                                    <img src="static/img/hero/vector-1.png" alt="shape"/>
+                                </div>
+                                <div class="shape-image-2 wow fadeInLeft" data-wow-delay="0.8s">
+                                    <img src="static/img/hero/vector-2.png" alt="shape"/>
+                                </div>
+                                <div class="shape-image-3 wow fadeInRight" data-wow-delay="1.1s">
+                                    <img src="static/img/hero/vector-3.png" alt="shape"/>
+                                </div>
+                                <div class="shape-image-4 wow fadeInUp" data-wow-delay="1.4s">
+                                    <img src="static/img/hero/vector-4.png" alt="shape"/>
+                                </div>
+                                <div class="shape-image-5 wow fadeInUp" data-wow-delay="1.7s">
+                                    <img src="static/img/hero/vector-5.png" alt="shape"/>
+                                </div>
+                                <div class="shape-image-6 wow fadeInRight" data-wow-delay="2s">
+                                    <img src="static/img/hero/vector-6.png" alt="shape"/>
+                                </div>
+                                <div class="shape-image-7 wow fadeInUp" data-wow-delay="2.3s">
+                                    <img src="static/img/hero/vector-7.png" alt="shape"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Welcome Area -->
+            <!-- Start Services Area -->
+            <section class="services-area section-padding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="service-single">
+                                <div class="service-icon">
+                                    <img src="static/img/services/1.png" alt="Service"/>
+                                </div>
+                                <h3>Web 框架及部署</h3>
+                                <p>
+                                    基于Python的Flask编写后端,使用Flask-SQLAlchemy进行ORM封装,前端基于JQuery和VUE，通过Axios封装AJAX请求，部署在腾讯云服务器GunicornWEB容器。 </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="service-single">
+                                <div class="service-icon">
+                                    <img src="static/img/services/2.png" alt="Service"/>
+                                </div>
+                                <h3>关系抽取模型</h3>
+                                <p> 基于HuggingFace平台的开源BioBERT进行句子的分词和向量化，采用CasRel的joint的抽取方法，训练平台为Kaggle的GPU 100。</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="service-single">
+                                <div class="service-icon">
+                                    <img src="static/img/services/3.png" alt="Service"/>
+                                </div>
+                                <h3>外部API</h3>
+                                <p>在中文抽取过程中，由于暂且没有中文数据集，使用百度翻译API进行转换，在中文抽取的结果可能存在一定的偏差与原语句不符</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End Services Area -->
+            <!-- Start Latest Project Area -->
+
+            <!-- End Latest Project Area -->
+            <!-- Start Analysis Area -->
+
+            <!-- End Analysis Area -->
+            <!-- Start Service Provide Area -->
+
+            <!-- Start Blog Area -->
+
+            <!-- End Blog Area -->
+            <!-- Start Client Logo Area -->
+
+            <!-- End Client Logo Area -->
+            <!-- Start Footer Area -->
+            <footer class="footer-area">
+                <div class="footer-top">
+                    <div class="container">
+                        <div class="footer-info">
+                            <h4>系统设计信息</h4>
+                            <ul class="link-list list-style">
+                                <li>指导老师：李智恒</li>
+                                <li>设计人员：岳彩恒</li>
+                                <li>学校：山东科技大学</li>
+                                <li>专业：智能科学与技术</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Start Back To Top Area -->
+                <div class="back-to-top">
+                    <span>Back To Top</span>
+                </div>
+                <!-- End Back To Top Area -->
+            </footer>
+            <!-- End Footer Area -->
+        </div>
+    </div>
+    <!-- Start Custom Cursor -->
+    <div class="custom-cursor">
+        <div id="cursor">
+            <div id="cursor-ball"></div>
+        </div>
+    </div>
+</div>
+<!-- End Custom Cursor -->
+<!-- all js here -->
+<!-- jquery version -->
+<script src="static/js/jquery-3.1.1.min.js"></script>
+<!-- popper js -->
+<script src="static/js/popper.min.js"></script>
+<!-- bootstrap js -->
+<script src="static/js/bootstrap.min.js"></script>
+<!-- selectize -->
+<script src="static/js/selectize.js"></script>
+<!-- icheck -->
+<script src="static/js/icheck.min.js"></script>
+<!-- owl.carousel js -->
+<script src="static/js/owl.carousel.min.js"></script>
+<!-- appear js -->
+<script src="static/js/jquery.appear.js"></script>
+<!-- easing js -->
+<script src="static/js/jquery.easing.1.3.min.js"></script>
+<!-- venobox js -->
+<script src="static/js/venobox.min.js"></script>
+<!-- countTo js -->
+<script src="static/js/jquery.countTo.js"></script>
+<!-- wow js -->
+<script src="static/js/wow.min.js"></script>
+<!-- loadMoreResults js -->
+<script src="static/js/loadMoreResults.js"></script>
+<!-- TweenMax js -->
+<script src="static/js/TweenMax.js"></script>
+<!-- main js -->
+<script src="static/js/main.js"></script>
+<script src="static/js/vue.js"></script>
+<script src="static/element-ui/lib/index.js"></script>
+<link rel="stylesheet" href="static/element-ui/lib/theme-chalk/index.css">
+<script src="static/js/axios-0.18.0.js"></script>
+
+<script>
+
+</script>
+
+</body>
+</html>

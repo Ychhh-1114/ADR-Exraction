@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="http://localhost:8080/static/css/main.css">
+    <title>药物不良反应抽取系统</title>
+    <style>
+        body {
+            background-image: url("../static/img/7.jpeg");
+            background-size: cover;
+        }
+
+        .common-layout {
+            background-image: url("../static/img/6.jpeg");
+            background-size: 1000px 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <template>
+        <div class="common-layout">
+            <el-container>
+                <el-header>
+                    <div style="text-align: center;color: white">
+                        <h1>药物不良反应抽取系统</h1>
+                    </div>
+
+                </el-header>
+                <el-main>
+                    <div style="position:absolute;left:20%;margin-left: -50px;
+    width: 1000px;height: 100px;line-height:242px">
+                        <template>
+                            <el-input
+                                    v-model="textarea"
+                                    :rows="10"
+                                    type="textarea"
+                                    placeholder="请输入"
+                            />
+                        </template>
+                    </div>
+                    <div style="position: absolute;left: 1080px;top: 325px">
+                        <el-row class="mb-4">
+                            <el-button type="danger" round v-on:click="del_all">清空</el-button>
+                            <el-button type="primary" round v-on:click="extract">抽取</el-button>
+                        </el-row>
+                    </div>
+
+                </el-main>
+            </el-container>
+        </div>
+    </template>
+
+
+    <div v-if="reKey==1" style="position: absolute;left:20%;margin-left: -50px;top: 375px;width: 1000px">
+        <div v-for="(adr,i) in adr_results">
+            <template>
+                <el-radio-group v-model="labelPosition" label="label position">
+                    <el-radio-button label="{{i}}抽取结果"></el-radio-button>
+                </el-radio-group>
+                <div style="margin: 20px"/>
+                <el-form
+                        :label-position="labelPosition"
+                        label-width="100px"
+                        :model="formLabelAlign"
+                        style="max-width: 800px"
+                >
+                    <div>
+                        <el-form-item label="药物名称">
+                            <el-input v-model="adr.drug"/>
+                        </el-form-item>
+                        <el-form-item label="不良反应">
+                            <el-input v-model="adr.advers"/>
+                        </el-form-item>
+                    </div>
+
+                </el-form>
+            </template>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script src="static/js/vue.js"></script>
+<script src="static/element-ui/lib/index.js"></script>
+<link rel="stylesheet" href="static/element-ui/lib/theme-chalk/index.css">
+<script src="static/js/axios-0.18.0.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data() {
+            return {
+                alert: 0,
+                textarea: "",
+                reKey: 0,
+                adr_results: [],
+                nullkey: 0,
+                lang_: "1",
+
+            }
+        },
+        mounted() {
+            var _this = this;
+            _this.reKey = 0;
+            _this.textarea = "";
+        },
+        methods: {
+            del_all() {
+                var _this = this;
+                _this.textarea = "";
+                _this.reKey = 0;
+            },
+            extract() {
+                var _this = this;
+                _this.reKey = 0;
+                if (_this.textarea == "") {
+                    alert("抽取内容不得为空")
+                } else {
+                    axios({
+                        method: "post",
+                        url: "/model/extract",
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        data: {
+                            "text": _this.textarea,
+                            "lang": _this.lang_
+                        }
+                    }).then(function (resp) {
+                        _this.nullkey = resp.data.nullkey;
+                        if (_this.nullkey == 0) {
+                            alert("未抽取到任何信息")
+                        } else {
+                            _this.adr_results = resp.data.adr_list;
+                            _this.reKey = 1
+                        }
+
+                    })
+                }
+
+
+            }
+        }
+    })
+
+
+</script>
+
+
+</body>
+</html>
