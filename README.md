@@ -30,3 +30,11 @@ We present two children with acute lymphocytic leukemia who developed leukoencep
 - GPlinker可能是调参问题，准确率和召回率一般且模型参数量较大，模型大小也为这三者之中最大
 - BERT-BILSTM-CRF准确率和召回率较高和CasRel差不多
 - 单独检测了BERT模型对于adr关系分类问题的准确率，其效果高达95%以上，侧面说明了若在pipeline模型中发生误差，主要是由于NER模型的效果有误差
+
+
+## WEB系统集成
+
+- 后端使用flask框架进行数据的处理
+- 前端使用VUE+JQuery+Axios封装页面和请求
+- 使用ElementUI VUE3.0版组件
+- 部署服务器为腾讯云
